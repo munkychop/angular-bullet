@@ -3,7 +3,7 @@ function AngularBullet () {
 
         "use strict";
 
-        var _self = this,
+        var _self = {},
             _events = {};
 
         _self.on = function (event, fn, once)
@@ -85,7 +85,10 @@ function AngularBullet () {
                 if (typeof callbackObject.once === "boolean" && callbackObject.once === true) _self.off(event, callbackObject.cb);
             }
         };
-    }));
+
+        return _self;
+        
+    })());
 }
 
 // check for AMD/Module support, otherwise call the Bullet function to setup the angular module.
