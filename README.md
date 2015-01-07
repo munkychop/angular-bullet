@@ -1,7 +1,7 @@
 # Angular Bullet
 
 Angular Bullet is an ultra lightweight and simple to use pub-sub library, with AMD/module support and an intuitive API.
-It was built to facilitate a simple and consistent system of communication across Angular applications and includes only the bare essentials typically needed to achieve this. The main advantage of Angular Bullet over $rootScope is that it has an ’off’ method, which removes the need to return reregistration functions.
+It was built to facilitate a simple and consistent system of communication across AngularJS applications and includes only the bare essentials typically needed to achieve this. The main advantage of Angular Bullet over using _$rootScope_ is that it has an **'off'** method, which removes the need to keep track of  and deregister event handlers.
 
 ### Usage
 
