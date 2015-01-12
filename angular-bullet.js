@@ -1,7 +1,12 @@
-function AngularBullet () {
-    angular.module('angular-bullet',[]).constant('angularBullet', (function () {
+function AngularBullet ()
+{
+    angular.module("angular-bullet",[]).factory("angularBullet", ["$timeout", Bullet]);
 
+    function Bullet ($timeout)
+    {
         "use strict";
+
+        console.log("AngularBullet:: $timeout:", $timeout);
 
         var _self = {},
             _events = {};
@@ -77,18 +82,22 @@ function AngularBullet () {
             if (typeof event !== "string" ||
                 typeof _events[event] === "undefined") return;
 
-            for (var fnString in _events[event].callbacks)
+            function runCallbacks ()
             {
-                var callbackObject = _events[event].callbacks[fnString];
+                for (var fnString in _events[event].callbacks)
+                {
+                    var callbackObject = _events[event].callbacks[fnString];
 
-                if (typeof callbackObject.cb === "function") callbackObject.cb(data);
-                if (typeof callbackObject.once === "boolean" && callbackObject.once === true) _self.off(event, callbackObject.cb);
+                    if (typeof callbackObject.cb === "function") callbackObject.cb(data);
+                    if (typeof callbackObject.once === "boolean" && callbackObject.once === true) _self.off(event, callbackObject.cb);
+                }
             }
+
+            $timeout(runCallbacks);
         };
 
         return _self;
-        
-    })());
+    }
 }
 
 // check for AMD/Module support, otherwise call the Bullet function to setup the angular module.
