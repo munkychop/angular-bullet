@@ -6,8 +6,6 @@ function AngularBullet ()
     {
         "use strict";
 
-        console.log("AngularBullet:: $timeout:", $timeout);
-
         var _self = {},
             _events = {};
 
