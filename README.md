@@ -254,7 +254,7 @@ angularBullet.trigger("user-added", customData);
 ```
 
 ### Important!
-Make sure that you use the **'off'** method to de-register any listeners when AngularJS sends a '$destroy' event to a _$scope_, otherwise Angular Bullet could keep a reference to functions that no longer need exist, potentially creating a memory leak.
+Make sure that you use the **'off'** method to de-register any listeners when AngularJS sends a '$destroy' event to a _$scope_, otherwise Angular Bullet could keep a reference to functions that no longer need to exist, potentially creating a memory leak.
 
 An easy way to do this is to listen for the '$destroy' event and act on it accordingly:
 
