@@ -46,7 +46,7 @@ CoolApp.controller("MainCtrl", ["angularBullet", MainCtrl]);
 
 function MainCtrl (angularBullet)
 {
-    angularBullet.emit("hello");
+    angularBullet.trigger("hello");
 }
 ```
 
